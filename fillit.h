@@ -1,6 +1,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+#define BUF_SIZE 32
+
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>

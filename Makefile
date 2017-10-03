@@ -15,12 +15,12 @@ cmain:
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 	/bin/rm -f *.o
-	gcc main.c libft/libft.a
-	./a.out
+	gcc main.c libft/libft.a fillit.a
+	./a.out "test.txt"
 
 main: #compiles the main.c file with libft.a after cleaning *.o's take this out when turning in
 	/bin/rm -f *.o
-	gcc main.c libft/libft.a
+	gcc main.c libft/libft.a fillit.a
 	./a.out
 
 clean:

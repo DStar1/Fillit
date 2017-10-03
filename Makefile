@@ -1,6 +1,7 @@
 NAME = fillit.a
 
 SRC = 	fillit.c \
+		validator.c 
 
 all: $(NAME)
 
@@ -15,7 +16,7 @@ cmain:
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 	/bin/rm -f *.o
-	gcc main.c libft/libft.a fillit.a
+	gcc  main.c libft/libft.a fillit.a
 	./a.out "test.txt"
 
 main: #compiles the main.c file with libft.a after cleaning *.o's take this out when turning in

@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/03 18:49:28 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/03 20:10:33 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,14 @@ int		check_if_valid(char *final, int *tot_char)
 	return (1);
 }
 
-// char	**turn_into_2d(char *final)
-// {
-// 	char 2d_arr;
+char	**turn_into_2d(char *final)
+{
+	char **2d_arr;
+	char tmp[5];
+	int i;
 
-// 	while(final[i] != '\n')
+	i = 0;
+	while(i < 21)
+		2d_arr[i] = 
 
-// }
+}

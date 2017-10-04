@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/03 20:51:59 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/03 22:31:56 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,55 @@ char **create_new_box(int *size) //change all size to *size when done
 	return(nbox);
 } //how to free() old 2d array(linked list?, pass back the 2d array and free()?)
 
+char *convert_to_letts(char *src, int tet_nubr_npie)
+{
+	char *str;
+	int i;
+
+	i = 0;
+	str = src;
+	//str = (char*)malloc((char_size + 1) * sizeof(char));
+	while (str[i] != '\0')
+	{
+		if (str[i] == '#')
+		{
+			str[i] = tet_nubr_npie + 'A'; 
+		}
+		i++;
+	}
+	return (str);
+}
+
 int main(int argc, char **argv)
 {
 	char *data; //change back the makefile
+	char *str;
+	char **to_arr;
 	int tot_char;
 	int size;
 	int j;
+	int i;
+	int tet_nubr_npie;
 
 	tot_char = 0;
  	if (argc > 0){
 		data = argv[1];
-		char *c = ft_get_stdin(data, &tot_char);
+		char *final = ft_get_stdin(data, &tot_char);
 		j = tot_char;
+		tet_nubr_npie = check_if_valid(final, &tot_char); //try to not use this fuction here
 		//printf("%d\n%d\n", j, check_if_valid(c,&tot_char));
 
 		//printf("%s\n", c);
 
 		size = 4;
 		//ft_putarr(create_new_box(&size)); 
-		ft_putarr(turn_into_2d(c, &tot_char));
-		///will print finished 2d array and will use ft_putarr()
-
+		to_arr = turn_into_2d(final, &tot_char);
+		for ( i = 0; to_arr[i] != '\0'; i++ )
+		{
+			str = to_arr[i];
+			printf("%s\n", convert_to_letts(str, i)); //creates 2d array of strings, only showing first string
+			///will print finished 2d array and will use ft_putarr()
+		}
 	}
 	return (0);
 }

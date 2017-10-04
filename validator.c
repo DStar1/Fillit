@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/03 15:57:46 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/03 18:49:28 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 	char	tmp[100000];
 	int		filedesc;
 
-	filedesc = open("test.txt", O_RDONLY);
+	filedesc = open("test2.txt", O_RDONLY);
 	total_size = 0;
 	//final = malloc(0);
 	while ((ret = read(filedesc, buf, 1000)) > 0)
@@ -38,19 +38,41 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 
 int		check_if_valid(char *final, int *tot_char)
 {
-	// i = nbr of chars in test.txt
 	int j;
+	int pos;
+	int line;
+	int dot;
+	int pound;
+
 	j = *tot_char;
-	int checked = 0;
-	while (j >= 0)
+	line = 0;
+	dot = 0;
+	pound = 0;
+	pos = 0;
+	while (pos < j)
 	{
-		if (final[j] == '#')
+		while (line <= 4 && pos < j)
 		{
-			checked++;
+			if (final[pos] == '.')
+				dot++;
+			else if (final[pos] == '#')
+				pound++;
+			else if (final[pos] == '\n')
+				line++;
+			pos++;
 		}
-		j--;
+		if (dot != 12 || pound != 4)
+			return (0);
+		else
+		{
+			dot = 0;
+			pound = 0;
+			line = 0;
+		}
+		while (final[pos] == '\n')
+			pos++;
 	}
-	return (checked);
+	return (1);
 }
 
 // char	**turn_into_2d(char *final)

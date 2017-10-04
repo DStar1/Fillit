@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/03 18:49:28 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/03 20:10:11 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 	char	tmp[100000];
 	int		filedesc;
 
-	filedesc = open("test2.txt", O_RDONLY);
+	filedesc = open("test.txt", O_RDONLY);
 	total_size = 0;
 	//final = malloc(0);
 	while ((ret = read(filedesc, buf, 1000)) > 0)
@@ -38,20 +38,20 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 
 int		check_if_valid(char *final, int *tot_char)
 {
-	int j;
+	int numpie;
 	int pos;
 	int line;
 	int dot;
 	int pound;
 
-	j = *tot_char;
+	numpie = 0;
 	line = 0;
 	dot = 0;
 	pound = 0;
 	pos = 0;
-	while (pos < j)
+	while (pos < *tot_char)
 	{
-		while (line <= 4 && pos < j)
+		while (line <= 4 && pos < *tot_char)
 		{
 			if (final[pos] == '.')
 				dot++;
@@ -69,10 +69,11 @@ int		check_if_valid(char *final, int *tot_char)
 			pound = 0;
 			line = 0;
 		}
+		numpie++;
 		while (final[pos] == '\n')
 			pos++;
 	}
-	return (1);
+	return (numpie);
 }
 
 // char	**turn_into_2d(char *final)

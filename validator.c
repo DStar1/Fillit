@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/03 20:10:33 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/03 21:01:14 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 	char	tmp[100000];
 	int		filedesc;
 
-	filedesc = open("test2.txt", O_RDONLY);
+	filedesc = open("test.txt", O_RDONLY);
 	total_size = 0;
 	//final = malloc(0);
 	while ((ret = read(filedesc, buf, 1000)) > 0)
@@ -38,20 +38,20 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 
 int		check_if_valid(char *final, int *tot_char)
 {
-	int j;
+	int numpie;
 	int pos;
 	int line;
 	int dot;
 	int pound;
 
-	j = *tot_char;
+	numpie = 0;
 	line = 0;
 	dot = 0;
 	pound = 0;
 	pos = 0;
-	while (pos < j)
+	while (pos < *tot_char)
 	{
-		while (line <= 4 && pos < j)
+		while (line <= 4 && pos < *tot_char)
 		{
 			if (final[pos] == '.')
 				dot++;
@@ -69,20 +69,30 @@ int		check_if_valid(char *final, int *tot_char)
 			pound = 0;
 			line = 0;
 		}
+		numpie++;
 		while (final[pos] == '\n')
 			pos++;
 	}
-	return (1);
+	return (numpie);
 }
 
-char	**turn_into_2d(char *final)
+char	**turn_into_2d(char *final, int *tot_char)
 {
-	char **2d_arr;
-	char tmp[5];
+	char **two_d_arr;
 	int i;
+	int j;
+	int tet_nubr_npie;
 
+	j = 0;
 	i = 0;
-	while(i < 21)
-		2d_arr[i] = 
-
+	tet_nubr_npie = check_if_valid(final, tot_char);
+	two_d_arr = (char**)malloc((tet_nubr_npie + 1) * sizeof(char*));
+	while (j < tet_nubr_npie)
+	{
+		two_d_arr[j] = ft_strsub(final, i, 21);
+		two_d_arr[j][20] = '\0';
+		i += 21;
+		j++;
+	}
+	return (two_d_arr);
 }

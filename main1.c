@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/03 20:51:59 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/03 19:16:58 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,12 @@ int main(int argc, char **argv)
 		data = argv[1];
 		char *c = ft_get_stdin(data, &tot_char);
 		j = tot_char;
-		//printf("%d\n%d\n", j, check_if_valid(c,&tot_char));
+		printf("%d\n%d\n", j, check_if_valid(c,&tot_char));
 
-		//printf("%s\n", c);
+		printf("%s\n", c);
 
 		size = 4;
-		//ft_putarr(create_new_box(&size)); 
-		ft_putarr(turn_into_2d(c, &tot_char));
+		ft_putarr(create_new_box(&size)); 
 		///will print finished 2d array and will use ft_putarr()
 
 	}

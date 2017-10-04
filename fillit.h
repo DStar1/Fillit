@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 21:36:23 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/02 21:38:56 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/03 20:35:17 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 // }					t_list;
 
 char	*ft_get_stdin(char *buf, int *i);
-int		check_if_valid(char *final, int *i);
+int		check_if_valid(char *final, int *tot_char);
+char	**turn_into_2d(char *final, int *tot_char);
 
 #endif

@@ -10,7 +10,7 @@ $(NAME):
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 
-cmain:
+cmain: 
 	/bin/rm -f $(NAME)
 	gcc -c -Wall -Werror -Wextra $(SRC)
 	ar rc $(NAME) *.o

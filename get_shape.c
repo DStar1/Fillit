@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_shape.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmckee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/05 15:17:34 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/05 15:34:38 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		**get_shape(char **shape_str, int tet_nubr_npie)
 	int k;
 	int l;
 
+	i = 0;
 	/* create array of smaller arrays to hold shapes*/
 	arr = (int**)malloc(sizeof(int*) * tet_nubr_npie);
 	while (i < tet_nubr_npie)
@@ -46,7 +47,7 @@ int		**get_shape(char **shape_str, int tet_nubr_npie)
 					j++;
 					k++;
 				}
-				arr[i][l] == k;
+				arr[i][l] = k;
 				l++;
 				k = 1;
 			}
@@ -54,5 +55,5 @@ int		**get_shape(char **shape_str, int tet_nubr_npie)
 		j = 0;
 		i++;
 	}
-	return (arr)
+	return (arr);
 }

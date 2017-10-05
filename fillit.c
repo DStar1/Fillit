@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 16:52:40 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/05 15:19:08 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/05 15:27:28 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ int main(int argc, char **argv)
 	int *tot_char; //setting tot_char in ft_get_stdin()
 	char *final;
 	char **to_arr;
+	int **int_arr;
 
 	tot_char = 0;
 	if (argc > 0)
 	{
 		final = ft_get_stdin(argv[1], &tot_char); //gettting tot_char and reading file
 		to_arr = turn_into_2d(final, &tot_char);
+		int_arr = get_shape(to_arr, tet_nubr_npie);
 	}
 	return (0);
 }

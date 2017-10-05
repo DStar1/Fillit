@@ -1,7 +1,9 @@
 NAME = fillit.a
 
-SRC = 	fillit.c \
-		validator.c 
+SRC =	validator.c \
+		get_shape.c	
+#fillit.c \
+		
 
 all: $(NAME)
 

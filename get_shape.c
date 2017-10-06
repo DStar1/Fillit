@@ -6,22 +6,22 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/05 15:34:38 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/05 22:20:10 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		**get_shape(char **shape_str, int tet_nubr_npie)
+int		**get_shape(char **two_d_arr, int tet_nubr_npie)
 {
-	int **arr;
-	int i;
-	int j;
-	int k;
-	int l;
+	int		**arr;
+	int		i;
+	int		j;
+	int		k;
+	int		l;
 
 	i = 0;
-	/* create array of smaller arrays to hold shapes*/
+	// create array of smaller arrays to hold shapes
 	arr = (int**)malloc(sizeof(int*) * tet_nubr_npie);
 	while (i < tet_nubr_npie)
 	{
@@ -33,27 +33,40 @@ int		**get_shape(char **shape_str, int tet_nubr_npie)
 	j = 0;
 	k = 1;
 	l = 0;
-	/* loop through all strings (i, j) putting 3 numbers (k) corresponding to shapes in the current array (i, l) */
-	while(shape_str[i] != '\0')
+//	printf("%s\n", two_d_arr[i]);
+	// loop through all strings (i, j) putting 3 numbers (k) corresponding to shapes in the current array (i, l)
+	while (two_d_arr[i] != 0)
 	{
-		while (shape_str[i][j] != '\0')
+		while (two_d_arr[i][j] != '#')
+			j++;
+		while (two_d_arr[i][j] != '\0')
 		{
-			if (shape_str[i][j] != '#')
-				j++;
-			else
+			if (two_d_arr[i][j] == '#')
 			{
-				while (shape_str[i][j] != '#')
+				j++;
+				while (two_d_arr[i][j] != '#')
 				{
 					j++;
 					k++;
 				}
 				arr[i][l] = k;
-				l++;
 				k = 1;
+				l++;
 			}
+			if (l == 3)
+				j++;
 		}
-		j = 0;
 		i++;
+		j = 0;
+		l = 0;
 	}
 	return (arr);
 }
+
+
+
+
+
+
+
+

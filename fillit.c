@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 16:52:40 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/05 15:27:28 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/05 18:37:59 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ int main(int argc, char **argv)
 	char *final;
 	char **to_arr;
 	int **int_arr;
+	int tet_nbr_npie;
 
 	tot_char = 0;
 	if (argc > 0)
 	{
 		final = ft_get_stdin(argv[1], &tot_char); //gettting tot_char and reading file
+		tet_nbr_npie = check_if_valid(final, &tot_char); //try to not use this fuction here// getting numpie in validator.c
 		to_arr = turn_into_2d(final, &tot_char);
 		int_arr = get_shape(to_arr, tet_nubr_npie);
+		
 	}
 	return (0);
 }

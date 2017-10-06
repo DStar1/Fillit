@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/05 22:20:10 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/05 22:27:57 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int		**get_shape(char **two_d_arr, int tet_nubr_npie)
 	j = 0;
 	k = 1;
 	l = 0;
-//	printf("%s\n", two_d_arr[i]);
 	// loop through all strings (i, j) putting 3 numbers (k) corresponding to shapes in the current array (i, l)
 	while (two_d_arr[i] != 0)
 	{
@@ -62,11 +61,3 @@ int		**get_shape(char **two_d_arr, int tet_nubr_npie)
 	}
 	return (arr);
 }
-
-
-
-
-
-
-
-

@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 21:36:23 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/05 15:32:29 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/05 16:05:03 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@
 char	*ft_get_stdin(char *buf, int *i);
 int		check_if_valid(char *final, int *tot_char);
 char	**turn_into_2d(char *final, int *tot_char);
-int		**get_shape(char **shape_str, int tet_nubr_npie);
+int		**get_shape(char **two_d_arr, int tet_nubr_npie);
 
 #endif

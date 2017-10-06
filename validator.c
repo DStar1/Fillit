@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/03 22:25:19 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/05 16:00:39 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ char	**turn_into_2d(char *final, int *tot_char)
 	i = 0;
 	tet_nubr_npie = check_if_valid(final, tot_char);
 	two_d_arr = (char**)malloc((tet_nubr_npie + 1) * sizeof(char*));
+	two_d_arr[tet_nubr_npie] = 0;
 	while (j < tet_nubr_npie)
 	{
 		two_d_arr[j] = ft_strsub(final, i, 21);

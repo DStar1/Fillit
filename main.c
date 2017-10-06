@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/05 18:38:04 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/05 22:30:04 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char **create_new_box(int *size) //change all size to *size when done
 	while (i < char_size)
 	{
 		j = 0;
-		while (j < char_size) 
+		while (j < char_size)
 			nbox[i][j++] = '.';
 		nbox[i][j] = '\0';
 		i++;
@@ -53,7 +53,7 @@ char *convert_to_letts(char *src, int tet_nubr_npie)
 	{
 		if (str[i] == '#')
 		{
-			str[i] = tet_nubr_npie + 'A'; 
+			str[i] = tet_nubr_npie + 'A';
 		}
 		i++;
 	}
@@ -78,14 +78,20 @@ int main(int argc, char **argv)
 		char *final = ft_get_stdin(argv[1], &tot_char);
 		j = tot_char;
 		tet_nubr_npie = check_if_valid(final, &tot_char); //try to not use this fuction here
-		printf("%d\n%d\n", j, check_if_valid(final,&tot_char));
+		//	printf("%d\n%d\n", j, check_if_valid(final,&tot_char));
 
 		//printf("%s\n", c);
 
 		size = 4;
-		//ft_putarr(create_new_box(&size)); 
+		//ft_putarr(create_new_box(&size));
 		 to_arr = turn_into_2d(final, &tot_char);
 		 int_arr = get_shape(to_arr, tet_nubr_npie);
+		 int count = 0;
+		 while (count < tet_nubr_npie)
+		 {
+			 printf("%i array [%i, %i, %i]\n", count, int_arr[count][0], int_arr[count][1], int_arr[count][2]);
+			 count++;
+		}
 		 //ft_putarr(to_arr);
 		// for ( i = 0; to_arr[i] != '\0'; i++ )
 		// {

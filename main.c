@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/08 18:01:56 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/09 10:24:56 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ int main(int argc, char **argv)
 	int size;
 	int j;
 	int i;
+	int k;
 	int tet_nubr_npie;
-	int **int_arr;
+	int ***int_arr;
 
 	tot_char = 0;
  	if (argc > 0){
@@ -56,13 +57,21 @@ int main(int argc, char **argv)
 		size = 4;
 		//ft_putarr(create_new_box(&size));
 		 to_arr = turn_into_2d(final, &tot_char);
-		 int_arr = get_shape(to_arr, tet_nubr_npie);
+		 int_arr = get_three_d_arr(to_arr, tet_nubr_npie);
 		 int count = 0;
+		 i = 0;
 		 while (count < tet_nubr_npie)
 		 {
-			 printf("%i array [%i, %i, %i]\n", count, int_arr[count][0], int_arr[count][1], int_arr[count][2]);
+			 printf("Shape number: %i\n", int_arr[count][4][0]);
+			 while (i < 4)
+			 {
+				 printf("Coordinate set %i: [%i,%i]\n", i, int_arr[count][i][0], int_arr[count][i][1]);
+				 i++;
+			 }
+			 ft_putchar('\n');
 			 count++;
-		}
+			 i = 0;
+		 }
 		// int three_d_int_arr[2][4][2] = {
 		// 	{{0,0}, {1, 0}, {2, 0}, {2, 1}},
 		// 	{{0,0}, {1, 0}, {2, 0}, {3, 0}},

@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/08 17:07:18 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/08 14:10:55 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,52 +58,3 @@ int		**get_shape(char **two_d_arr, int tet_nubr_npie)
 	}
 	return (arr);
 }
-
-/*int		***get_3d_arr(char **two_d_arr, int tet_nubr_npie)
-{
-	int***arr;
-	int i;
-	int j;
-
-	arr = (int***)malloc(sizeof(int**) * tet_nubr_npie);
-	i = 0;
-	j = 0;
-	while (tet_nubr_npie--)
-	{
-		arr[i] = (int**)malloc(sizeof(int*) * 5);
-		while (j < 4)
-		{
-			arr[i][j] = (int*)malloc(sizeof(int) * 2);
-			j++;
-		}
-		arr[i][4] = (int*)malloc(sizeof(int));
-		j = 0;
-		i++;
-	}
-	while (i--)
-	{
-		if (two_d_arr[i][0] == 1)
-			one_first(arr, two_d_arr);
-		else if (two_d_arr[i][0] == 3 || two_d_arr[i]
-
-	}
-	}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

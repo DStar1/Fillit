@@ -1,29 +1,29 @@
 NAME = fillit.a
 
 SRC =	validator.c \
-		get_shape.c	
+		get_shape.c
 #fillit.c \
-		
+
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c -Wall -Werror -Wextra $(SRC)
+	gcc -g -c -Wall -Werror -Wextra $(SRC)
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 
-cmain: 
+cmain:
 	/bin/rm -f $(NAME)
-	gcc -c -Wall -Werror -Wextra $(SRC)
+	gcc -g -c -Wall -Werror -Wextra $(SRC)
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 	/bin/rm -f *.o
-	gcc  main.c libft/libft.a fillit.a
+	gcc -g main.c libft/libft.a fillit.a
 	./a.out "test.txt"
 
 main: #compiles the main.c file with libft.a after cleaning *.o's take this out when turning in
 	/bin/rm -f *.o
-	gcc main.c libft/libft.a fillit.a
+	gcc -g main.c libft/libft.a fillit.a
 	./a.out
 
 clean:

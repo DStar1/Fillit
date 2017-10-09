@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/09 10:08:24 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/09 10:35:58 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,47 +25,32 @@ void	make_grid(int ***three_d_arr, int **two_d_int, int index)
 	i = 0;
 	j = 0;
 	k = 0;
+	three_d_arr[index][i][j++] = 0;
 	three_d_arr[index][i][j] = 0;
-	j++;
-	three_d_arr[index][i][j] = 0;
-	j++;
 	i++;
 	j = 0;
 	while (k < 3)
 	{
 		if (two_d_int[index][k] == 5)
 		{
-			y++;
-			three_d_arr[index][i][j] = x;
-			j++;
-			three_d_arr[index][i][j] = y;
-			i++;
+			three_d_arr[index][i][j++] = x;
+			three_d_arr[index][i++][j] = ++y;
 		}
 		else if (two_d_int[index][k] == 1)
 		{
-			x++;
-			three_d_arr[index][i][j] = x;
-			j++;
-			three_d_arr[index][i][j] = y;
-			i++;
+			three_d_arr[index][i][j++] = ++x;
+			three_d_arr[index][i++][j] = y;
 		}
 		else if (two_d_int[index][k] == 4)
 		{
-			y++;
-			x--;
-			three_d_arr[index][i][j] = x;
-			j++;
-			three_d_arr[index][i][j] = y;
-			i++;
+			three_d_arr[index][i][j++] = --x;
+			three_d_arr[index][i++][j] = ++y;
 		}
 		else if (two_d_int[index][k] == 3)
 		{
-			y++;
 			x = x - 2;
-			three_d_arr[index][i][j] = x;
-			j++;
-			three_d_arr[index][i][j] = y;
-			i++;
+			three_d_arr[index][i][j++] = x;
+			three_d_arr[index][i++][j] = ++y;
 		}
 		k++;
 		j = 0;

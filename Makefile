@@ -1,6 +1,7 @@
 NAME = fillit.a
 
 SRC =	validator.c \
+		backtrack_int_arr.c \
 		get_shape.c
 #fillit.c \
 

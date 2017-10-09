@@ -6,40 +6,11 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/05 22:30:04 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/08 18:01:56 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-char **create_new_box(int *size) //change all size to *size when done
-{
-	//size starts as 4(or 21) and is changed everytime it needs more
-	int char_size;
-	char **nbox;
-	int i;
-	int j;
-	int cnt;
-
-	i = 0;
-	cnt = 0;
-	char_size = *size + 4; //adjusts size variable being under 4
-	nbox = (char**)malloc((char_size + 1) * sizeof(char*)); //not  sure if supposed to protect this
-	while (i < char_size)
-		nbox[i++] = ft_strnew(char_size);
-	i = 0;
-	while (i < char_size)
-	{
-		j = 0;
-		while (j < char_size)
-			nbox[i][j++] = '.';
-		nbox[i][j] = '\0';
-		i++;
-	}
-	nbox[i] = (char*)malloc(sizeof(char)); //not  sure if supposed to protect this
-	nbox[i] = NULL;
-	return(nbox);
-} //how to free() old 2d array(linked list?, pass back the 2d array and free()?)
 
 char *convert_to_letts(char *src, int tet_nubr_npie)
 {
@@ -92,6 +63,11 @@ int main(int argc, char **argv)
 			 printf("%i array [%i, %i, %i]\n", count, int_arr[count][0], int_arr[count][1], int_arr[count][2]);
 			 count++;
 		}
+		// int three_d_int_arr[2][4][2] = {
+		// 	{{0,0}, {1, 0}, {2, 0}, {2, 1}},
+		// 	{{0,0}, {1, 0}, {2, 0}, {3, 0}},
+		// };
+		// solver(three_d_int_arr, tet_nubr_npie);
 		 //ft_putarr(to_arr);
 		// for ( i = 0; to_arr[i] != '\0'; i++ )
 		// {

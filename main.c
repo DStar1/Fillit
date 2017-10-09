@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/08 18:01:56 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/08 18:36:45 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ int main(int argc, char **argv)
 			 printf("%i array [%i, %i, %i]\n", count, int_arr[count][0], int_arr[count][1], int_arr[count][2]);
 			 count++;
 		}
-		// int three_d_int_arr[2][4][2] = {
-		// 	{{0,0}, {1, 0}, {2, 0}, {2, 1}},
-		// 	{{0,0}, {1, 0}, {2, 0}, {3, 0}},
-		// };
-		// solver(three_d_int_arr, tet_nubr_npie);
+		int three_d_int_arr[2][4][2] = {
+			{{0,0}, {1, 0}, {2, 0}, {2, 1}},
+			{{0,0}, {1, 0}, {2, 0}, {3, 0}},
+		};
+		solver(three_d_int_arr, 2);//tet_nubr_npie);
 		 //ft_putarr(to_arr);
 		// for ( i = 0; to_arr[i] != '\0'; i++ )
 		// {

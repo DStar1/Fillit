@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 16:52:40 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/08 17:59:16 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/08 18:27:12 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,8 @@ int		main(int argc, char **argv)
 	char	**to_arr;
 	int		**int_arr;
 	int		tet_nbr_npie;
-	int		**three_d_int_arr;
 
 	tot_char = 0;
-	three_d_int_arr[] = {
-		{{0,0}, {1, 0}, {2, 0}, {2, 1}},
-		{{0,0}, {1, 0}, {2, 0}, {3, 0}},
-	};
 	if (argc > 0)
 	{
 		final = ft_get_stdin(argv[1], &tot_char); //gettting tot_char and reading file

@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/09 10:35:58 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/09 20:47:36 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,47 @@ void	make_grid(int ***three_d_arr, int **two_d_int, int index)
 	i = 0;
 	j = 0;
 	k = 0;
+
 	three_d_arr[index][i][j++] = 0;
 	three_d_arr[index][i][j] = 0;
 	i++;
 	j = 0;
+	if (two_d_int[index][0] == 3 && two_d_int[index][1] == 1 && two_d_int[index][2] == 1)
+	{
+		three_d_arr[index][0][0] = 2;
+		three_d_arr[index][0][1] = 0;
+		three_d_arr[index][1][0] = 0;
+		three_d_arr[index][1][1] = 1;
+		three_d_arr[index][2][0] = 1;
+		three_d_arr[index][2][1] = 1;
+		three_d_arr[index][3][0] = 2;
+		three_d_arr[index][3][1] = 1;
+		return ;
+	}
+	if (two_d_int[index][0] == 1 && two_d_int[index][1] == 3 && two_d_int[index][2] == 1)
+	{
+		three_d_arr[index][0][0] = 1;
+		three_d_arr[index][0][1] = 0;
+		three_d_arr[index][1][0] = 2;
+		three_d_arr[index][1][1] = 0;
+		three_d_arr[index][2][0] = 0;
+		three_d_arr[index][2][1] = 1;
+		three_d_arr[index][3][0] = 1;
+		three_d_arr[index][3][1] = 1;
+		return ;
+	}
+	if (two_d_int[index][0] == 4 && two_d_int[index][1] == 1 && two_d_int[index][2] == 1)
+	{
+		three_d_arr[index][0][0] = 1;
+		three_d_arr[index][0][1] = 0;
+		three_d_arr[index][1][0] = 0;
+		three_d_arr[index][1][1] = 1;
+		three_d_arr[index][2][0] = 1;
+		three_d_arr[index][2][1] = 1;
+		three_d_arr[index][3][0] = 2;
+		three_d_arr[index][3][1] = 1;
+		return ;
+	}
 	while (k < 3)
 	{
 		if (two_d_int[index][k] == 5)

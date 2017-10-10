@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/09 20:56:05 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/09 20:58:08 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	make_grid(int ***three_d_arr, int **two_d_int, int index)
 		three_d_arr[index][3][1] = 1;
 		return ;
 	}
-	if (two_d_int[index][0] == 1 && two_d_int[index][1] == 1 && two_d_int[index][2] == 5)
+	if (two_d_int[index][0] == 4 && two_d_int[index][1] == 1 && two_d_int[index][2] == 5)
 	{
 		three_d_arr[index][0][0] = 1;
 		three_d_arr[index][0][1] = 0;
@@ -77,7 +77,6 @@ void	make_grid(int ***three_d_arr, int **two_d_int, int index)
 		three_d_arr[index][3][0] = 1;
 		three_d_arr[index][3][1] = 2;
 		return ;
-	}
 	}
 	while (k < 3)
 	{

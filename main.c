@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/09 22:21:56 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/12 16:25:00 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ int main(int argc, char **argv)
 
 		size = 4;
 		//ft_putarr(create_new_box(&size));
+		if (turn_into_2d(final, &tot_char) == 0)
+		{
+			ft_putstr("error\n");
+			return (0);
+		}
 		 to_arr = turn_into_2d(final, &tot_char);
 		 int_arr = get_three_d_arr(to_arr, tet_nubr_npie);
 		 int count = 0;

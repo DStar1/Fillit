@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/12 16:39:11 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/12 16:43:06 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int main(int argc, char **argv)
 		 int_arr = get_three_d_arr(to_arr, tet_nubr_npie);
 		 int count = 0;
 		 i = 0;
-		 while (count < tet_nubr_npie)
+/*		 while (count < tet_nubr_npie)
 		 {
 			 printf("Shape number: %i\n", int_arr[count][4][0]);
 			 while (i < 4)
@@ -82,7 +82,7 @@ int main(int argc, char **argv)
 			 ft_putchar('\n');
 			 count++;
 			 i = 0;
-		 }
+			 }*/
 		// int three_d_int_arr[2][4][2] = {
 		// 	{{0,0}, {1, 0}, {2, 0}, {2, 1}},
 		// 	{{0,0}, {1, 0}, {2, 0}, {3, 0}},

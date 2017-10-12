@@ -9,7 +9,6 @@ char **convert_to_letts(char **src, int tet_nubr_npie)
 	i = 0;
 	j = 0;
 	str = src;
-	//str = (char*)malloc((char_size + 1) * sizeof(char));
 	while (str[i] != '\0')
 	{
 	    j = 0;
@@ -69,9 +68,12 @@ int check_if_possible(int **two_d_int_arr, char **two_d_arr, int x, int y)
 	int i;
 	int x1;
 	int y1;
+	int size;
 
+	size = 0;
+	while (two_d_arr[0][size] != '\0')
+		size++;
 	i = 0;
-	//if i = 0 && x1 == 3 && y1 == 3(box_size)
 	while (i < 4)
 	{
 		x1 = x;
@@ -79,28 +81,45 @@ int check_if_possible(int **two_d_int_arr, char **two_d_arr, int x, int y)
 	
 		x1 = x1 + two_d_int_arr[i][0];
 		y1 = y1 + two_d_int_arr[i][1];
-			//printf("(%d, %d)", x1, y1);
-		if (x1 > 3 || y1 > 3 || two_d_arr[y1][x1] != '.') 	{printf("|");//for testing
-			return (0);}
-// 		//if (i = 0 && x1 == 3 && y1 == 3)// || ((x1 == 3 && y1 >= 3) || (y1 == 3 && x1 >= 3)))
-// 		    //return 0;
-		printf("(%d, %d)", x1, y1);
+		if (x1 > size - 1 || y1 > size - 1 || two_d_arr[y1][x1] == '\0' || two_d_arr[y1][x1] != '.')
+			return (0);
 		i++;
 	}
-	printf("/ ");
 	return (1);
 }
 
+
+void		ft_clean_grid(char **grid, int let)
+{
+	int		i;
+	int		j;
+	char letter;
+
+	i = 0;
+	letter = let + 'A';
+	while (grid[i])
+	{
+		j = 0;
+		while (grid[i][j])
+		{
+			if (grid[i][j] == letter)
+				grid[i][j] = '.';
+			j++;
+		}
+		i++;
+	}
+}
+
+
 //added place
-char **place(int **two_d_int_arr, char **two_d_arr, int x, int y)
+int place(int **two_d_int_arr, char **two_d_arr, int x, int y)
 {
 	int i;
 	int x1;
 	int y1;
-	char **two_d_fin;
+	int size;
 
 	i = 0;
-	two_d_fin = two_d_arr;
 	while (i < 4)
 	{
 		x1 = x;
@@ -108,69 +127,72 @@ char **place(int **two_d_int_arr, char **two_d_arr, int x, int y)
 	
 		x1 = x1 + two_d_int_arr[i][0];
 		y1 = y1 + two_d_int_arr[i][1];
-		two_d_fin[y1][x1] = '#';
+		two_d_arr[y1][x1] = '#';
 		i++;
 	}
-	return (two_d_fin);
+	return (1);
 }
 
-
-char **backtrack(char **two_d_arr, int box_size, int ***three_d, int tet_cnt, int tet_nbr_npie) //maybe pass size as an int pointer
+char **backtrack(char **two_d_arr, int box_size, int ***three_d, int tet_cnt, int tet_nbr_npie)
 {
-	//int box_size;
-	//int tet_cnt; //tet_cnt should start at 0 for the place_piece function
 	int j;
 	int i;
     int int_arr;
-    //int **two_d_int_arr;
     char **two_d_fin;
-    //int ***three_d;
+	char **tmp;
 
 	j = 0;
 	i = 0;
     int_arr = 0;
+	tmp = NULL; //possible to change whole function to int and change **char within (less variables)
     two_d_fin = two_d_arr;
-		while (j < box_size + 3) //adds three to get to 4 fo rthe 4x4 array
+	if (tet_cnt == tet_nbr_npie)
+		return (two_d_fin); //finishes the code
+	while (j < box_size + 3) //adds three to get to 4 fo rthe 4x4 array
+	{
+		i = 0;
+		while (i < box_size + 3)
 		{
-		    i = 0;
-			while (i < box_size + 3)
+			if ((check_if_possible(three_d[tet_cnt], two_d_fin, i, j)))
 			{
-				if ((check_if_possible(three_d[tet_cnt], two_d_fin, j, i)) && (j != box_size+2 && i != box_size+2))
-				{
-					printf("place\n");//place_piece //use convert_to_letts(two_d_arr, tet_cnt)
-					//if (tet_cnt < tet_nbr_npie){
-					    two_d_fin = convert_to_letts((place(three_d[tet_cnt], two_d_fin, j, i)), tet_cnt);
-					    ft_putarr(two_d_fin);
-					    printf("\nx%d, y%d), ", j, i);
-					    tet_cnt++;
-					//}
-																										// if (tet_cnt < tet_nbr_npie){
-																										// 	backtrack(two_d_fin, box_size, three_d, tet_cnt++, tet_nbr_npie);
-																										// 	return (two_d_arr);
-																										// }
-																										// else
-																										// {
-																										// 	printf("place\n");//place_piece //use convert_to_letts(two_d_arr, tet_cnt)
-																										// 	two_d_fin = convert_to_letts((place(three_d[tet_cnt], two_d_fin, j, i)), tet_cnt);
-																										//     ft_putarr(two_d_fin);
-																										// 	tet_cnt++;
-																										// }
-					if (tet_cnt - 1 >= tet_nbr_npie)
-					{
-						backtrack(two_d_fin, box_size, three_d, tet_cnt++, tet_nbr_npie);
-						printf("finished\n"); //print/store result
-						return (two_d_fin);
-					}
-					//else//two_d_fin = convert_to_letts((place(three_d[tet_cnt], two_d_fin, x, y)), tet_nbr_npie);
-					    //{backtrack(two_d_fin, box_size, three_d, tet_cnt++, tet_nbr_npie); printf("backtrack, ");} //tet_cnt--?
-				}
-				i++;
+				place(three_d[tet_cnt], two_d_fin, i, j);
+				two_d_fin = convert_to_letts(two_d_fin, tet_cnt);
+				//ft_putarr(two_d_fin);
+				tmp = backtrack(two_d_fin, box_size, three_d, tet_cnt+1, tet_nbr_npie);
+				if (tmp)
+					return (tmp);
+				ft_clean_grid(two_d_fin, tet_cnt);
 			}
-			j++;
+			i++;
 		}
-		return (NULL); //if no solution found
-//		box_size++;
-//	}
+		j++;
+	}
+	return (0); //if no solution found
+}
+
+//free 2d array
+void	free_array(char **array)
+{
+	int i;
+
+	i = 0;
+	while (array[i] != '\0')
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array[i]);
+	free(array);
+}
+
+int		round_up_sqrt(int n)
+{
+	int size;
+
+	size = 2;
+	while (size * size < n)
+		size++;
+	return (size);
 }
 
 char **solver(int ***three_d_int_arr, int tet_nbr_npie)
@@ -179,34 +201,18 @@ char **solver(int ***three_d_int_arr, int tet_nbr_npie)
 	int tet_cnt;
 	char **two_d_arr;
 
-	box_size = 1;
+	box_size = 0;
 	tet_cnt = 0;
-	two_d_arr = create_new_box(box_size);
-// 	while (backtrack(two_d_arr, box_size, three_d_int_arr, tet_cnt, tet_nbr_npie) == NULL)
-// 	{
-//     tet_cnt = 0; //sets tet_cnt back to the start
-// 		box_size++; //increases box size
-// 		two_d_arr = create_new_box(box_size); //automatically starts at 4x4 if you say *box_size = 1;
-// 	}
-	return (backtrack(two_d_arr, box_size, three_d_int_arr, tet_cnt, tet_nbr_npie)); //returns first result that is a solution. Possibly store in a struct to find the right one
+	box_size = round_up_sqrt(tet_nbr_npie * 4) - 3; //when box_size = 1, it is 4x4
+	two_d_arr = NULL;
+	while (!two_d_arr)
+	{
+		printf("Box_size: %d\n", box_size);
+		//free_array(two_d_arr); //causes seg fault?
+		two_d_arr = create_new_box(box_size); //automatically starts at 4x4 if you say *box_size = 1;
+		two_d_arr = backtrack(two_d_arr, box_size, three_d_int_arr, tet_cnt, tet_nbr_npie);
+		box_size++;
+	}
+	ft_putarr(two_d_arr);
+	return (two_d_arr);
 }
-
-// int main()
-// {
-//  int three_d_int_arr[3][4][2] = {
-// 			{{0,0}, {1, 0}, {2, 0}, {2, 1}},
-// 			{{0,0}, {1, 0}, {2, 0}, {3, 0}},
-// 			{{0,0}, {1, 0}, {0, 1}, {1, 1}},
-// 		};
-// 		//printf("%d", three_d_int_arr[0][1][0]);
-// 		char **str = solver(three_d_int_arr, 3);
-
-// 		int i = 0;
-//     	while (str[i])
-//     	{
-//     		printf(str[i]);
-//     		printf("\n");
-//     		i++;
-//     	}
-//     		return 0;
-// }

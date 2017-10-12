@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/09 10:24:56 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/09 22:21:56 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char *convert_to_letts(char *src, int tet_nubr_npie)
-{
-	char *str;
-	int i;
+// char *convert_to_letts(char *src, int tet_nubr_npie)
+// {
+// 	char *str;
+// 	int i;
 
-	i = 0;
-	str = src;
-	//str = (char*)malloc((char_size + 1) * sizeof(char));
-	while (str[i] != '\0')
-	{
-		if (str[i] == '#')
-		{
-			str[i] = tet_nubr_npie + 'A';
-		}
-		i++;
-	}
-	return (str);
-}
+// 	i = 0;
+// 	str = src;
+// 	//str = (char*)malloc((char_size + 1) * sizeof(char));
+// 	while (str[i] != '\0')
+// 	{
+// 		if (str[i] == '#')
+// 		{
+// 			str[i] = tet_nubr_npie + 'A';
+// 		}
+// 		i++;
+// 	}
+// 	return (str);
+// }
 
 int main(int argc, char **argv)
 {
@@ -76,8 +76,8 @@ int main(int argc, char **argv)
 		// 	{{0,0}, {1, 0}, {2, 0}, {2, 1}},
 		// 	{{0,0}, {1, 0}, {2, 0}, {3, 0}},
 		// };
-		// solver(three_d_int_arr, tet_nubr_npie);
-		 //ft_putarr(to_arr);
+		solver(int_arr, tet_nubr_npie);
+		//ft_putarr(to_arr);
 		// for ( i = 0; to_arr[i] != '\0'; i++ )
 		// {
 		// 	str = to_arr[i];

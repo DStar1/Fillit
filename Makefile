@@ -1,7 +1,7 @@
 NAME = fillit.a
 
 SRC =	validator.c \
-		backtrack_int_arr.c \
+		backtrack.c \
 		get_shape.c
 #fillit.c \
 
@@ -13,9 +13,10 @@ $(NAME):
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 
+# add back -Wall -Werror -Wextra
 cmain:
 	/bin/rm -f $(NAME)
-	gcc -g -c -Wall -Werror -Wextra $(SRC)
+	gcc -g -c $(SRC)
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 	/bin/rm -f *.o

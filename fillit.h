@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 21:36:23 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/09 13:28:08 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/12 04:25:46 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**turn_into_2d(char *final, int *tot_char);
 int		**get_shape(char **two_d_arr, int tet_nubr_npie);
 int     check_if_possible(int **two_d_int_arr, char **two_d_arr, int x, int y);
 //char    **backtrack(char **two_d_arr, int box_size, int ***tree_d_int_arr, int tet_cnt, int tet_nbr_npie);
-char    **solver(int ***tree_d_int_arr, int tet_nbr_npie);
+char	**solver(int ***tree_d_int_arr, int tet_nbr_npie);
 //char    **create_new_box(int size);
 int		***get_three_d_arr(char **two_d_arr, int tet_nubr_npie);
 

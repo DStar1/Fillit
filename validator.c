@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/05 22:30:23 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/09 22:24:32 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 	char	tmp[100000];
 	int		filedesc;
 
-	filedesc = open("test.txt", O_RDONLY);
+	filedesc = open("test2.txt", O_RDONLY);
 	total_size = 0;
 	//final = malloc(0);
 	while ((ret = read(filedesc, buf, 1000)) > 0)

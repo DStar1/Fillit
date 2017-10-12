@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/12 16:25:00 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/12 16:39:11 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,15 @@ int main(int argc, char **argv)
 	int ***int_arr;
 
 	tot_char = 0;
- 	if (argc > 0){
+ 	if (argc > 0)
+	{
 		data = argv[1];
 		char *final = ft_get_stdin(argv[1], &tot_char);
+		if (!final)
+		{
+			ft_putstr("error\n");
+			return (0);
+		}
 		j = tot_char;
 		tet_nubr_npie = check_if_valid(final, &tot_char); //try to not use this fuction here
 		//	printf("%d\n%d\n", j, check_if_valid(final,&tot_char));

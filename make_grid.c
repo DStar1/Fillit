@@ -6,7 +6,7 @@
 /*   By: kmckee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 20:01:44 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/12 22:28:24 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/12 22:32:27 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	grid_helper(int ***three_d_arr, int **two_d, int ind, int i)
 	{
 		j = 0;
 		if (two_d[ind][k] == 3)
-			x = x - 2;
+			x -= 2;
 		if (two_d[ind][k] == 4)
 			x--;
 		if (two_d[ind][k] == 1)

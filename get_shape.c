@@ -6,13 +6,13 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/12 18:55:33 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/12 20:04:30 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	make_grid(int ***three_d_arr, int **two_d, int index)
+/*void	make_grid(int ***three_d_arr, int **two_d, int index)
 {
 	int x;
 	int y;
@@ -104,7 +104,7 @@ void	make_grid(int ***three_d_arr, int **two_d, int index)
 		j = 0;
 	}
 	k = 0;
-}
+	}*/
 
 static void	populate_int_arr(int **arr, char **two_d_arr, int i, int j)
 {

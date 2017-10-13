@@ -2,7 +2,8 @@ NAME = fillit.a
 
 SRC =	validator.c \
 		backtrack.c \
-		get_shape.c
+		get_shape.c \
+		make_grid.c
 #fillit.c \
 
 
@@ -20,8 +21,7 @@ cmain:
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 	/bin/rm -f *.o
-	gcc -g main.c libft/libft.a fillit.a
-	./a.out "test.txt"
+	gcc -g main.c libft/libft.a fillit.a -o fillit
 
 main: #compiles the main.c file with libft.a after cleaning *.o's take this out when turning in
 	/bin/rm -f *.o

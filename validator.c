@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/09 22:24:32 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/12 16:50:07 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 	char	tmp[100000];
 	int		filedesc;
 
-	filedesc = open("test2.txt", O_RDONLY);
+	filedesc = open(buf, O_RDONLY);
 	total_size = 0;
 	//final = malloc(0);
 	while ((ret = read(filedesc, buf, 1000)) > 0)
@@ -76,6 +76,31 @@ int		check_if_valid(char *final, int *tot_char)
 	return (numpie);
 }
 
+int		check_if_valid_shape(char *shape_str)
+{
+	int i;
+	int shared_sides;
+
+	i = 0;
+	shared_sides = 0;
+	while (i < 19)
+	{
+		if (shape_str[i] == '#')
+		{
+			if (i + 1 <= 18 && shape_str[i + 1] == '#')
+				shared_sides++;
+			if (i - 1 >= 0 && shape_str[i - 1] == '#')
+				shared_sides++;
+			if (i + 5 <= 18 && shape_str[i + 5] == '#')
+				shared_sides++;
+			if (i - 5 >= 0 && shape_str[i - 5] == '#')
+				shared_sides++;
+		}
+		i++;
+	}
+	return (shared_sides);
+}
+
 char	**turn_into_2d(char *final, int *tot_char)
 {
 	char **two_d_arr;
@@ -86,6 +111,8 @@ char	**turn_into_2d(char *final, int *tot_char)
 	j = 0;
 	i = 0;
 	tet_nubr_npie = check_if_valid(final, tot_char);
+	if (tet_nubr_npie == 0)
+		return (0);
 	two_d_arr = (char**)malloc((tet_nubr_npie + 1) * sizeof(char*));
 	two_d_arr[tet_nubr_npie] = 0;
 	while (j < tet_nubr_npie)
@@ -93,6 +120,14 @@ char	**turn_into_2d(char *final, int *tot_char)
 		two_d_arr[j] = ft_strsub(final, i, 21);
 		two_d_arr[j][20] = '\0';
 		i += 21;
+		j++;
+	}
+	j = 0;
+	while (j < tet_nubr_npie)
+	{
+		i = (check_if_valid_shape(two_d_arr[j]));
+		if (i != 6 && i != 8)
+			return (0);
 		j++;
 	}
 	return (two_d_arr);

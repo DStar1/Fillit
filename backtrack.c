@@ -90,7 +90,6 @@ int check_if_possible(int **two_d_int_arr, char **two_d_arr, int x, int y)
 	{
 		x1 = x;
 		y1 = y;
-	
 		x1 = x1 + two_d_int_arr[i][0];
 		y1 = y1 + two_d_int_arr[i][1];
 		if (x1 > size - 1 || y1 > size - 1 || two_d_arr[y1][x1] == '\0' || two_d_arr[y1][x1] != '.')
@@ -136,7 +135,6 @@ int place(int **two_d_int_arr, char **two_d_arr, int x, int y)
 	{
 		x1 = x;
 		y1 = y;
-	
 		x1 = x1 + two_d_int_arr[i][0];
 		y1 = y1 + two_d_int_arr[i][1];
 		two_d_arr[y1][x1] = '#';
@@ -219,7 +217,7 @@ char **solver(int ***three_d_int_arr, int tet_nbr_npie)
 	two_d_arr = NULL;
 	while (!two_d_arr)
 	{
-		printf("Box_size: %d\n", box_size);
+		//	printf("Box_size: %d\n", box_size);
 		//free_array(two_d_arr); //causes seg fault?
 		two_d_arr = create_new_box(box_size); //automatically starts at 4x4 if you say *box_size = 1;
 		two_d_arr = backtrack(two_d_arr, box_size, three_d_int_arr, tet_cnt, tet_nbr_npie);

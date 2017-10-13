@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 20:33:16 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/09 22:21:56 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/12 16:43:06 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,15 @@ int main(int argc, char **argv)
 	int ***int_arr;
 
 	tot_char = 0;
- 	if (argc > 0){
+ 	if (argc > 0)
+	{
 		data = argv[1];
 		char *final = ft_get_stdin(argv[1], &tot_char);
+		if (!final)
+		{
+			ft_putstr("error\n");
+			return (0);
+		}
 		j = tot_char;
 		tet_nubr_npie = check_if_valid(final, &tot_char); //try to not use this fuction here
 		//	printf("%d\n%d\n", j, check_if_valid(final,&tot_char));
@@ -56,11 +62,16 @@ int main(int argc, char **argv)
 
 		size = 4;
 		//ft_putarr(create_new_box(&size));
+		if (turn_into_2d(final, &tot_char) == 0)
+		{
+			ft_putstr("error\n");
+			return (0);
+		}
 		 to_arr = turn_into_2d(final, &tot_char);
 		 int_arr = get_three_d_arr(to_arr, tet_nubr_npie);
 		 int count = 0;
 		 i = 0;
-		 while (count < tet_nubr_npie)
+/*		 while (count < tet_nubr_npie)
 		 {
 			 printf("Shape number: %i\n", int_arr[count][4][0]);
 			 while (i < 4)
@@ -71,7 +82,7 @@ int main(int argc, char **argv)
 			 ft_putchar('\n');
 			 count++;
 			 i = 0;
-		 }
+			 }*/
 		// int three_d_int_arr[2][4][2] = {
 		// 	{{0,0}, {1, 0}, {2, 0}, {2, 1}},
 		// 	{{0,0}, {1, 0}, {2, 0}, {3, 0}},

@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/12 18:51:15 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/12 18:55:33 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ static void	populate_int_arr(int **arr, char **two_d_arr, int i, int j)
 	int k;
 	int l;
 
-	l = 0;
 	while (two_d_arr[i] != 0)
 	{
 		l = 0;

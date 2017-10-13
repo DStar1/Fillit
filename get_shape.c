@@ -6,13 +6,13 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/12 22:15:22 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/12 22:39:04 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	populate_int_arr(int **arr, char **two_d_arr, int i, int j)
+void	populate_int_arr(int **arr, char **two_d_arr, int i, int j)
 {
 	int k;
 	int l;

@@ -6,105 +6,11 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/12 20:04:30 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/12 22:15:22 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/*void	make_grid(int ***three_d_arr, int **two_d, int index)
-{
-	int x;
-	int y;
-	int i;
-	int j;
-	int k;
-
-	x = 0;
-	y = 0;
-	i = 0;
-	j = 0;
-	k = 0;
-	three_d_arr[index][i][j++] = 0;
-	three_d_arr[index][i][j] = 0;
-	i++;
-	j = 0;
-	if (two_d[index][0] == 3 && two_d[index][1] == 1 && two_d[index][2] == 1)
-	{
-		three_d_arr[index][0][0] = 2;
-		three_d_arr[index][0][1] = 0;
-		three_d_arr[index][1][0] = 0;
-		three_d_arr[index][1][1] = 1;
-		three_d_arr[index][2][0] = 1;
-		three_d_arr[index][2][1] = 1;
-		three_d_arr[index][3][0] = 2;
-		three_d_arr[index][3][1] = 1;
-		return ;
-	}
-	if (two_d[index][0] == 1 && two_d[index][1] == 3 && two_d[index][2] == 1)
-	{
-		three_d_arr[index][0][0] = 1;
-		three_d_arr[index][0][1] = 0;
-		three_d_arr[index][1][0] = 2;
-		three_d_arr[index][1][1] = 0;
-		three_d_arr[index][2][0] = 0;
-		three_d_arr[index][2][1] = 1;
-		three_d_arr[index][3][0] = 1;
-		three_d_arr[index][3][1] = 1;
-		return ;
-	}
-	if (two_d[index][0] == 4 && two_d[index][1] == 1 && two_d[index][2] == 1)
-	{
-		three_d_arr[index][0][0] = 1;
-		three_d_arr[index][0][1] = 0;
-		three_d_arr[index][1][0] = 0;
-		three_d_arr[index][1][1] = 1;
-		three_d_arr[index][2][0] = 1;
-		three_d_arr[index][2][1] = 1;
-		three_d_arr[index][3][0] = 2;
-		three_d_arr[index][3][1] = 1;
-		return ;
-	}
-	if (two_d[index][0] == 4 && two_d[index][1] == 1 && two_d[index][2] == 5)
-	{
-		three_d_arr[index][0][0] = 1;
-		three_d_arr[index][0][1] = 0;
-		three_d_arr[index][1][0] = 0;
-		three_d_arr[index][1][1] = 1;
-		three_d_arr[index][2][0] = 1;
-		three_d_arr[index][2][1] = 1;
-		three_d_arr[index][3][0] = 1;
-		three_d_arr[index][3][1] = 2;
-		return ;
-	}
-	while (k < 3)
-	{
-		if (two_d[index][k] == 5)
-		{
-			three_d_arr[index][i][j++] = x;
-			three_d_arr[index][i++][j] = ++y;
-		}
-		else if (two_d[index][k] == 1)
-		{
-			three_d_arr[index][i][j++] = ++x;
-			three_d_arr[index][i++][j] = y;
-		}
-		else if (two_d[index][k] == 4)
-		{
-			three_d_arr[index][i][j++] = --x;
-			three_d_arr[index][i++][j] = ++y;
-		}
-		else if (two_d[index][k] == 3)
-		{
-			x = x - 2;
-			three_d_arr[index][i][j++] = x;
-			three_d_arr[index][i++][j] = ++y;
-		}
-		k++;
-		j = 0;
-	}
-	k = 0;
-	}*/
 
 static void	populate_int_arr(int **arr, char **two_d_arr, int i, int j)
 {

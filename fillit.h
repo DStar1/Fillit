@@ -13,20 +13,11 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-//#define BUF_SIZE 32
-
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include "libft/libft.h"
-
-// typedef struct		s_list
-// {
-// 	void			*content;
-// 	size_t			content_size;
-// 	struct s_list	*next;
-// }					t_list;
 
 char	*ft_get_stdin(char *buf, int *i);
 int		check_if_valid(char *final, int *tot_char);
@@ -39,6 +30,5 @@ char	**solver(int ***tree_d_int_arr, int tet_nbr_npie);
 int		***get_three_d_arr(char **two_d_arr, int tet_nubr_npie);
 
 void	make_grid(int ***three_d_arr, int **two_d, int index);
-
 
 #endif

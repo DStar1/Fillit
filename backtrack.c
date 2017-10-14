@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/08 16:26:30 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/13 13:04:54 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/14 13:01:18 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,59 +123,61 @@ void		ft_clean_grid(char **grid, int let)
 
 
 //added place
-int place(int **two_d_int_arr, char **two_d_arr, int x, int y)
+char **place(int **two_d_int_arr, char **two_d_arr, int x, int y)
 {
 	int i;
 	int x1;
 	int y1;
-	int size;
+	char **two_d_fin;
 
 	i = 0;
+	two_d_fin = two_d_arr;
 	while (i < 4)
 	{
 		x1 = x;
 		y1 = y;
 		x1 = x1 + two_d_int_arr[i][0];
 		y1 = y1 + two_d_int_arr[i][1];
-		two_d_arr[y1][x1] = '#';
+		two_d_fin[y1][x1] = '#';
 		i++;
 	}
-	return (1);
+	return (two_d_fin);
 }
 
-char **backtrack(char **two_d_arr, int box_size, int ***three_d, int tet_cnt, int tet_nbr_npie)
+char **backtrack(char **two_d_arr, int ***three_d, int tet_cnt, int tet_nbr_npie)
 {
 	int j;
 	int i;
-    int int_arr;
-    char **two_d_fin;
 	char **tmp;
+	int box_size;
 
-	j = 0;
-	i = 0;
-    int_arr = 0;
-	tmp = NULL; //possible to change whole function to int and change **char within (less variables)
-    two_d_fin = two_d_arr;
+//added to get rid of box size variable///
+	box_size = 0;
+	while (two_d_arr[box_size+3] != '\0')
+		box_size++;
+	//box_size = box_size - 3;
+///////////
+
+	j = -1; //reduce number of lines in code
+	//tmp = NULL; //possible to change whole function to int and change **char within (less variables)
 	if (tet_cnt == tet_nbr_npie)
-		return (two_d_fin); //finishes the code
-	while (j < box_size + 3) //adds three to get to 4 fo rthe 4x4 array
+		return (two_d_arr); //finishes the code
+	while (j++ < box_size + 3) //adds three to get to 4 fo rthe 4x4 array
 	{
-		i = 0;
-		while (i < box_size + 3)
+		i = -1;
+		while (i++ < box_size + 3)
 		{
-			if ((check_if_possible(three_d[tet_cnt], two_d_fin, i, j)))
+			if ((check_if_possible(three_d[tet_cnt], two_d_arr, i, j)))
 			{
-				place(three_d[tet_cnt], two_d_fin, i, j);
-				two_d_fin = convert_to_letts(two_d_fin, tet_cnt);
-				//ft_putarr(two_d_fin);
-				tmp = backtrack(two_d_fin, box_size, three_d, tet_cnt+1, tet_nbr_npie);
-				if (tmp)
+				//two_d_arr = place(three_d[tet_cnt], two_d_arr, i, j);
+				two_d_arr = convert_to_letts(place(three_d[tet_cnt], two_d_arr, i, j), tet_cnt);
+				if ((tmp = backtrack(two_d_arr, three_d, tet_cnt+1, tet_nbr_npie)))
 					return (tmp);
-				ft_clean_grid(two_d_fin, tet_cnt);
+				ft_clean_grid(two_d_arr, tet_cnt);
 			}
-			i++;
+			//i++;
 		}
-		j++;
+		//j++;
 	}
 	return (0); //if no solution found
 }
@@ -220,7 +222,7 @@ char **solver(int ***three_d_int_arr, int tet_nbr_npie)
 		//	printf("Box_size: %d\n", box_size);
 		//free_array(two_d_arr); //causes seg fault?
 		two_d_arr = create_new_box(box_size); //automatically starts at 4x4 if you say *box_size = 1;
-		two_d_arr = backtrack(two_d_arr, box_size, three_d_int_arr, tet_cnt, tet_nbr_npie);
+		two_d_arr = backtrack(two_d_arr, three_d_int_arr, tet_cnt, tet_nbr_npie);
 		box_size++;
 	}
 	ft_putarr(two_d_arr);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
+/*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 21:36:23 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/12 04:25:46 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/13 17:52:28 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int     check_if_possible(int **two_d_int_arr, char **two_d_arr, int x, int y);
 char	**solver(int ***tree_d_int_arr, int tet_nbr_npie);
 //char    **create_new_box(int size);
 int		***get_three_d_arr(char **two_d_arr, int tet_nubr_npie);
+
+void	make_grid(int ***three_d_arr, int **two_d, int index);
 
 
 #endif

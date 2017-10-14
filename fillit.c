@@ -6,12 +6,12 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 16:52:40 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/08 18:27:12 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/13 13:37:52 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "libft/libft.h"
+//#include <fcntl.h>
+#include "fillit.h"
 
 /*
 ** Find out how many tetrominos they give us and store it in tet_num
@@ -34,10 +34,10 @@
 
 int		main(int argc, char **argv)
 {
-	int		*tot_char; //setting tot_char in ft_get_stdin()
+	int		tot_char; //setting tot_char in ft_get_stdin()
 	char	*final;
 	char	**to_arr;
-	int		**int_arr;
+	int		***int_arr; //getting warning?
 	int		tet_nbr_npie;
 
 	tot_char = 0;
@@ -46,7 +46,8 @@ int		main(int argc, char **argv)
 		final = ft_get_stdin(argv[1], &tot_char); //gettting tot_char and reading file
 		tet_nbr_npie = check_if_valid(final, &tot_char); //try to not use this fuction here// getting numpie in validator.c
 		to_arr = turn_into_2d(final, &tot_char);
-		int_arr = get_shape(to_arr, tet_nubr_npie);	
+		int_arr = get_shape(to_arr, tet_nbr_npie);
+		solver(int_arr, tet_nbr_npie);
 	}
 	return (0);
 }

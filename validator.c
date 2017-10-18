@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasmith <hasmith>                          +#+  +:+       +#+        */
+/*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/12 16:50:07 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/18 16:54:21 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other functions so it can be manipulated and used
+char	*ft_get_stdin(char *buf, int *tot_char)
 {
 	int		ret;
 	int		total_size;
@@ -22,10 +22,8 @@ char	*ft_get_stdin(char *buf, int *tot_char) //pass the adress of i to other fun
 
 	filedesc = open(buf, O_RDONLY);
 	total_size = 0;
-	//final = malloc(0);
 	while ((ret = read(filedesc, buf, 1000)) > 0)
 	{
-		//ft_strcpy(tmp, final);
 		free(final);
 		buf[ret] = '\0';
 		total_size += ret;
@@ -101,12 +99,30 @@ int		check_if_valid_shape(char *shape_str)
 	return (shared_sides);
 }
 
+int		check_newlines(char *final)
+{
+	int i;
+	int count;
+
+	i = 0;
+	count = 0;
+	while (final[i] != '\0')
+	{
+		if (final[i] == '\n')
+		{
+			count++;
+		}
+		i++;
+	}
+	return (count);
+}
+
 char	**turn_into_2d(char *final, int *tot_char)
 {
-	char **two_d_arr;
-	int i;
-	int j;
-	int tet_nubr_npie;
+	char	**two_d_arr;
+	int		i;
+	int		j;
+	int		tet_nubr_npie;
 
 	j = 0;
 	i = 0;
@@ -123,6 +139,8 @@ char	**turn_into_2d(char *final, int *tot_char)
 		j++;
 	}
 	j = 0;
+	if ((check_newlines(final) + 1) % tet_nubr_npie != 0)
+		return (0);
 	while (j < tet_nubr_npie)
 	{
 		i = (check_if_valid_shape(two_d_arr[j]));

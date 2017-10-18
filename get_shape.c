@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:25:35 by kmckee            #+#    #+#             */
-/*   Updated: 2017/10/12 22:39:04 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/18 15:50:59 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		**get_shape(char **two_d_arr, int tet_nubr_npie)
 	int		i;
 	int		j;
 
+	i = 0;
 	arr = (int**)malloc(sizeof(int*) * tet_nubr_npie);
 	while (i < tet_nubr_npie)
 		arr[i++] = (int *)malloc(sizeof(int) * 3);

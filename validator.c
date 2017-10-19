@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/18 16:54:21 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/18 17:29:32 by kmckee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,26 +127,22 @@ char	**turn_into_2d(char *final, int *tot_char)
 	j = 0;
 	i = 0;
 	tet_nubr_npie = check_if_valid(final, tot_char);
-	if (tet_nubr_npie == 0)
+	if (tet_nubr_npie == 0 || (check_newlines(final) + 1) % tet_nubr_npie != 0)
 		return (0);
 	two_d_arr = (char**)malloc((tet_nubr_npie + 1) * sizeof(char*));
 	two_d_arr[tet_nubr_npie] = 0;
 	while (j < tet_nubr_npie)
 	{
 		two_d_arr[j] = ft_strsub(final, i, 21);
-		two_d_arr[j][20] = '\0';
+		two_d_arr[j++][20] = '\0';
 		i += 21;
-		j++;
 	}
 	j = 0;
-	if ((check_newlines(final) + 1) % tet_nubr_npie != 0)
-		return (0);
 	while (j < tet_nubr_npie)
 	{
-		i = (check_if_valid_shape(two_d_arr[j]));
+		i = (check_if_valid_shape(two_d_arr[j++]));
 		if (i != 6 && i != 8)
 			return (0);
-		j++;
 	}
 	return (two_d_arr);
 }

@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/18 18:18:09 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/18 18:32:53 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,30 @@ char	*ft_get_stdin(char *buf, int *tot_char)
 
 int		check_if_valid(char *final, int *tot_char)
 {
-	int numpie;
-	int pos;
-	int line;
-	int dot;
-	int pound;
+	int tet_p_ln_d_pnd[5];
 
-	numpie = 0;
-	dot = 0;
-	pound = 0;
-	pos = 0;
-	while (pos < *tot_char)
+	tet_p_ln_d_pnd[0] = 0;
+	tet_p_ln_d_pnd[1] = 0;
+	tet_p_ln_d_pnd[3] = 0;
+	tet_p_ln_d_pnd[4] = 0;
+	while (tet_p_ln_d_pnd[1] < *tot_char)
 	{
-		line = 0;
-		while (line <= 4 && pos < *tot_char)
+		tet_p_ln_d_pnd[2] = 0;
+		while (tet_p_ln_d_pnd[2] <= 4 && tet_p_ln_d_pnd[1] < *tot_char)
 		{
-			if (final[pos] == '.')
-				dot++;
-			else if (final[pos] == '#')
-				pound++;
-			else if (final[pos] == '\n')
-				line++;
-			pos++;
+			if (final[tet_p_ln_d_pnd[1]] == '.')
+				tet_p_ln_d_pnd[3]++;
+			else if (final[tet_p_ln_d_pnd[1]] == '#')
+				tet_p_ln_d_pnd[4]++;
+			else if (final[tet_p_ln_d_pnd[1]] == '\n')
+				tet_p_ln_d_pnd[2]++;
+			tet_p_ln_d_pnd[1]++;
 		}
-		if (dot % 12 != 0 || pound % 4 != 0)
+		if (tet_p_ln_d_pnd[3] % 12 != 0 || tet_p_ln_d_pnd[4] % 4 != 0)
 			return (0);
-		numpie++;
-		while (final[pos] == '\n')
-			pos++;
+		tet_p_ln_d_pnd[0]++;
 	}
-	return (numpie);
+	return (tet_p_ln_d_pnd[0]);
 }
 
 int		check_shape(char *shape_str)

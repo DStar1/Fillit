@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/08 16:26:30 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/14 13:01:18 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/18 17:15:59 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,39 +35,6 @@ char	**convert_to_letts(char **src, int tet_nubr_npie)
 		i++;
 	}
 	return (str);
-}
-
-/*
-** adjusts size variable being under 4
-**  //not  sure if supposed to protect this
-*/
-
-char	**create_new_box(int size)
-{
-	int		char_size;
-	char	**nbox;
-	int		i;
-	int		j;
-	int		cnt;
-
-	i = 0;
-	cnt = 0;
-	char_size = size + 3;
-	nbox = (char**)malloc((char_size + 1) * sizeof(char*));
-	while (i < char_size)
-		nbox[i++] = ft_strnew(char_size);
-	i = 0;
-	while (i < char_size)
-	{
-		j = 0;
-		while (j < char_size)
-			nbox[i][j++] = '.';
-		nbox[i][j] = '\0';
-		i++;
-	}
-	nbox[i] = (char*)malloc(sizeof(char));
-	nbox[i] = NULL;
-	return (nbox);
 }
 
 /*
@@ -102,27 +69,6 @@ int		check_if_possible(int **two_d_int_arr, char **two_d_arr, int x, int y)
 		i++;
 	}
 	return (1);
-}
-
-void	ft_clean_grid(char **grid, int let)
-{
-	int		i;
-	int		j;
-	char	letter;
-
-	i = 0;
-	letter = let + 'A';
-	while (grid[i])
-	{
-		j = 0;
-		while (grid[i][j])
-		{
-			if (grid[i][j] == letter)
-				grid[i][j] = '.';
-			j++;
-		}
-		i++;
-	}
 }
 
 char	**place(int **two_d_int_arr, char **two_d_arr, int x, int y)
@@ -187,30 +133,6 @@ char	**backtrack(char **two_d_arr,
 		}
 	}
 	return (0);
-}
-
-void	free_array(char **array)
-{
-	int i;
-
-	i = 0;
-	while (array[i] != '\0')
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array[i]);
-	free(array);
-}
-
-int		round_up_sqrt(int n)
-{
-	int size;
-
-	size = 2;
-	while (size * size < n)
-		size++;
-	return (size);
 }
 
 /*

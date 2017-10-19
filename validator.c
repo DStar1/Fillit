@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/18 17:29:32 by kmckee           ###   ########.fr       */
+/*   Updated: 2017/10/18 17:47:20 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int		check_if_valid(char *final, int *tot_char)
 	return (numpie);
 }
 
-int		check_if_valid_shape(char *shape_str)
+int		check_shape(char *shape_str)
 {
 	int i;
 	int shared_sides;
@@ -137,11 +137,10 @@ char	**turn_into_2d(char *final, int *tot_char)
 		two_d_arr[j++][20] = '\0';
 		i += 21;
 	}
-	j = 0;
-	while (j < tet_nubr_npie)
+	j = -1;
+	while (++j < tet_nubr_npie)
 	{
-		i = (check_if_valid_shape(two_d_arr[j++]));
-		if (i != 6 && i != 8)
+		if (check_shape(two_d_arr[j]) != 6 && check_shape(two_d_arr[j]) != 8)
 			return (0);
 	}
 	return (two_d_arr);

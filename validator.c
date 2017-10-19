@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 20:25:28 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/18 17:47:20 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/10/18 18:18:09 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int		check_if_valid(char *final, int *tot_char)
 	int pound;
 
 	numpie = 0;
-	line = 0;
 	dot = 0;
 	pound = 0;
 	pos = 0;
 	while (pos < *tot_char)
 	{
+		line = 0;
 		while (line <= 4 && pos < *tot_char)
 		{
 			if (final[pos] == '.')
@@ -59,14 +59,8 @@ int		check_if_valid(char *final, int *tot_char)
 				line++;
 			pos++;
 		}
-		if (dot != 12 || pound != 4)
+		if (dot % 12 != 0 || pound % 4 != 0)
 			return (0);
-		else
-		{
-			dot = 0;
-			pound = 0;
-			line = 0;
-		}
 		numpie++;
 		while (final[pos] == '\n')
 			pos++;
